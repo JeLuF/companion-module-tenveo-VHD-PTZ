@@ -11,10 +11,12 @@
 		"url": "git@github.com:JeLuF/companion-module-tenveo-VHD-PTZ.git"
 	},
 	"dependencies": {
-		"@companion-module/base": "~1.5.1"
+		"@companion-module/base": "~1.5.1",
+                "got": "^12.6.0"
 	},
 	"devDependencies": {
 		"@companion-module/tools": "^1.4.1"
 	},
-	"prettier": "@companion-module/tools/.prettierrc.json"
+	"prettier": "@companion-module/tools/.prettierrc.json",
+        "type": "module"
 }
