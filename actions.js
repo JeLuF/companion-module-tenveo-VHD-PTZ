@@ -1,16 +1,17 @@
-function tv_do_command(cmd) {
-    await got({
-        url: 'http://198.18.10.10/cmdparse',
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: 'ReqUserName=YWRtaW4=&ReqUserPwd=YWRtaW4=&CmdData={"Cmd":"ReqPtzCtrl","Content":{"PtzCmd":"' + cmd + '","ParamH":26,"ParamV":20}}'
-    });
-    
-}
 
 module.exports = function (self) {
+        function tv_do_command(cmd) {
+            await got({
+                url: 'http://198.18.10.10/cmdparse',
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: 'ReqUserName=YWRtaW4=&ReqUserPwd=YWRtaW4=&CmdData={"Cmd":"ReqPtzCtrl","Content":{"PtzCmd":"' + cmd + '","ParamH":26,"ParamV":20}}'
+            });
+            
+        }
+
 	self.setActionDefinitions({
 		left_action: {
 			name: 'Left',
