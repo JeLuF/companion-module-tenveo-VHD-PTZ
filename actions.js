@@ -1,19 +1,67 @@
 module.exports = function (self) {
 	self.setActionDefinitions({
-		sample_action: {
-			name: 'My First Action',
+		left_action: {
+			name: 'Left',
 			options: [
 				{
-					id: 'num',
+					id: 'speed',
 					type: 'number',
-					label: 'Test',
-					default: 5,
+					label: 'Speed',
+					default: 20,
 					min: 0,
 					max: 100,
 				},
 			],
 			callback: async (event) => {
-				console.log('Hello world!', event.options.num)
+				console.log('Hello world!', event.options.speed)
+			},
+		},
+		right_action: {
+			name: 'Right',
+			options: [
+				{
+					id: 'speed',
+					type: 'number',
+					label: 'Speed',
+					default: 20,
+					min: 0,
+					max: 100,
+				},
+			],
+			callback: async (event) => {
+				console.log('Hello world!', event.options.speed)
+			},
+		},
+		down_action: {
+			name: 'Down',
+			options: [
+				{
+					id: 'speed',
+					type: 'number',
+					label: 'Speed',
+					default: 20,
+					min: 0,
+					max: 100,
+				},
+			],
+			callback: async (event) => {
+				console.log('Hello world!', event.options.speed)
+			},
+		},
+		up_action: {
+			name: 'Up',
+			options: [
+				{
+					id: 'speed',
+					type: 'number',
+					label: 'Speed',
+					default: 20,
+					min: 0,
+					max: 100,
+				},
+			],
+			callback: async (event) => {
+				console.log('Hello world!', event.options.speed)
 			},
 		},
 	})

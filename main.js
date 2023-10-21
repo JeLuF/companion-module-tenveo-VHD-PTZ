@@ -33,16 +33,17 @@ class ModuleInstance extends InstanceBase {
 			{
 				type: 'textinput',
 				id: 'host',
-				label: 'Target IP',
+				label: 'Camera IP',
 				width: 8,
 				regex: Regex.IP,
 			},
 			{
 				type: 'textinput',
 				id: 'port',
-				label: 'Target Port',
+				label: 'Web UI Port',
 				width: 4,
 				regex: Regex.PORT,
+                                default: '80',
 			},
 		]
 	}

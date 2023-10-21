@@ -1,3 +1,3 @@
-## Your module
+## Tenveo VHD PTZ
 
-Write some help for your users here!
+Control a Tenveo VHD (NDI|HX) camera via HTTP

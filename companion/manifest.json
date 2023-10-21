@@ -1,16 +1,16 @@
 {
-	"id": "your-module-name",
-	"name": "your-module-name",
-	"shortname": "module-shortname",
-	"description": "A short one line description of your module",
-	"version": "0.0.0",
+	"id": "tenveo-VHD-PTZ",
+	"name": "tenveo-VHD-PTZ",
+	"shortname": "tenveo-VHD-PTZ",
+	"description": "Control a Tenveo VHD (NDI|HX) camera via HTTP",
+	"version": "0.0.1",
 	"license": "MIT",
-	"repository": "git+https://github.com/bitfocus/companion-module-your-module-name.git",
-	"bugs": "https://github.com/bitfocus/companion-module-your-module-name/issues",
+	"repository": "git@github.com:JeLuF/companion-module-tenveo-VHD-PTZ.git",
+	"bugs": "https://github.com/JeLuF/companion-module-tenveo-VHD-PTZ/issues",
 	"maintainers": [
 		{
-			"name": "Your name",
-			"email": "Your email"
+			"name": "Jens Frank",
+			"email": "jens.l.frank@gmail.com"
 		}
 	],
 	"runtime": {
@@ -20,7 +20,7 @@
 		"entrypoint": "../main.js"
 	},
 	"legacyIds": [],
-	"manufacturer": "Your company",
-	"products": ["Your product"],
+	"manufacturer": "Tenveo",
+	"products": ["TEVO-VHD20N","TEVO-VHD10N"],
 	"keywords": []
 }
