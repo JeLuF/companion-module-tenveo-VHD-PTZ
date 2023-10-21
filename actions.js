@@ -1,3 +1,15 @@
+function tv_do_command(cmd) {
+    await got({
+        url: 'http://198.18.10.10/cmdparse',
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: 'ReqUserName=YWRtaW4=&ReqUserPwd=YWRtaW4=&CmdData={"Cmd":"ReqPtzCtrl","Content":{"PtzCmd":"' + cmd + '","ParamH":26,"ParamV":20}}'
+    });
+    
+}
+
 module.exports = function (self) {
 	self.setActionDefinitions({
 		left_action: {
@@ -13,7 +25,7 @@ module.exports = function (self) {
 				},
 			],
 			callback: async (event) => {
-				console.log('Hello world!', event.options.speed)
+                                tv_do_command("Left")
 			},
 		},
 		right_action: {
@@ -29,7 +41,7 @@ module.exports = function (self) {
 				},
 			],
 			callback: async (event) => {
-				console.log('Hello world!', event.options.speed)
+                                tv_do_command("Right")
 			},
 		},
 		down_action: {
@@ -45,7 +57,7 @@ module.exports = function (self) {
 				},
 			],
 			callback: async (event) => {
-				console.log('Hello world!', event.options.speed)
+                                tv_do_command("Down")
 			},
 		},
 		up_action: {
@@ -61,7 +73,7 @@ module.exports = function (self) {
 				},
 			],
 			callback: async (event) => {
-				console.log('Hello world!', event.options.speed)
+                                tv_do_command("Up")
 			},
 		},
 	})
