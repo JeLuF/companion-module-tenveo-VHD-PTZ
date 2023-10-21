@@ -1,8 +1,8 @@
 import { InstanceBase, Regex, runEntrypoint, InstanceStatus } from '@companion-module/base'
-import { UpgradeScripts } from './upgrades'
-import { UpdateActions } from './actions'
-import { UpdateFeedbacks } from './feedbacks'
-import { UpdateVariableDefinitions } from './variables'
+import { UpgradeScripts } from './upgrades.js'
+import { UpdateActions } from './actions.js'
+import { UpdateFeedbacks } from './feedbacks.js'
+import { UpdateVariableDefinitions } from './variables.js'
 import got from 'got'
 
 class ModuleInstance extends InstanceBase {
