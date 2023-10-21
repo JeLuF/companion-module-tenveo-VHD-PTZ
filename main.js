@@ -1,8 +1,8 @@
-const { InstanceBase, Regex, runEntrypoint, InstanceStatus } = require('@companion-module/base')
-const UpgradeScripts = require('./upgrades')
-const UpdateActions = require('./actions')
-const UpdateFeedbacks = require('./feedbacks')
-const UpdateVariableDefinitions = require('./variables')
+import { InstanceBase, Regex, runEntrypoint, InstanceStatus } from '@companion-module/base'
+import { UpgradeScripts } from './upgrades'
+import { UpdateActions } from './actions'
+import { UpdateFeedbacks } from './feedbacks'
+import { UpdateVariableDefinitions } from './variables'
 import got from 'got'
 
 class ModuleInstance extends InstanceBase {
