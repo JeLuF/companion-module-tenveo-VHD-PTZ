@@ -3,7 +3,8 @@ import { UpgradeScripts } from './upgrades.js'
 import { UpdateActions } from './actions.js'
 import { UpdateFeedbacks } from './feedbacks.js'
 import { UpdateVariableDefinitions } from './variables.js'
-import got from 'got'
+import { Presets } from './presets.js'
+import fetch from 'node-fetch'
 
 class ModuleInstance extends InstanceBase {
 	constructor(internal) {
@@ -18,6 +19,7 @@ class ModuleInstance extends InstanceBase {
 		this.updateActions() // export actions
 		this.updateFeedbacks() // export feedbacks
 		this.updateVariableDefinitions() // export variable definitions
+		this.initPresets()
 	}
 	// When module gets deleted
 	async destroy() {
@@ -59,6 +61,10 @@ class ModuleInstance extends InstanceBase {
 
 	updateVariableDefinitions() {
 		UpdateVariableDefinitions(this)
+	}
+
+	initPresets() {
+	        this.setPresetDefinitions(Presets)
 	}
 }
 

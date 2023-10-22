@@ -1,4 +1,4 @@
-const { combineRgb } = require('@companion-module/base')
+import { combineRgb } from '@companion-module/base'
 
 export async function UpdateFeedbacks(self) {
 	self.setFeedbackDefinitions({
