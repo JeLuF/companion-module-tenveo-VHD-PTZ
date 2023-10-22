@@ -1,5 +1,5 @@
 
-module.exports = function (self) {
+export function UpdateActions(self) {
         async function tv_do_command(cmd) {
             const data = await got({
                 url: 'http://198.18.10.10/cmdparse',
