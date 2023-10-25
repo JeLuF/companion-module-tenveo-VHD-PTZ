@@ -18,7 +18,7 @@ export function Presets() {
 			type: 'button',
 			category: 'Pan/Tilt/Zoom',
 			name: 'left',
-			style: { text: '«', color: white, bgcolor: blue },
+			style: { text: '<', color: white, bgcolor: blue },
 			steps: [
 				{
 					down: [{ actionId: 'left_action', options: {} }],
@@ -30,7 +30,7 @@ export function Presets() {
 			type: 'button',
 			category: 'Pan/Tilt/Zoom',
 			name: 'right',
-			style: { text: '»', color: white, bgcolor: blue },
+			style: { text: '>', color: white, bgcolor: blue },
 			steps: [
 				{
 					down: [{ actionId: 'right_action', options: {} }],
@@ -42,7 +42,7 @@ export function Presets() {
 			type: 'button',
 			category: 'Pan/Tilt/Zoom',
 			name: 'realleft',
-			style: { text: '', png64: image_right, pngalignment: 'center:center', size: 'auto', color: white, bgcolor: blue },
+			style: { text: '', png64: image_left, pngalignment: 'center:center', size: 'auto', color: white, bgcolor: blue },
 			steps: [
 				{
 					down: [{ actionId: 'right_action', options: {} }],
@@ -54,7 +54,7 @@ export function Presets() {
 			type: 'button',
 			category: 'Pan/Tilt/Zoom',
 			name: 'realright',
-			style: { text: '>', color: white, bgcolor: blue },
+			style: { text: '', png64: image_right, pngalignment: 'center:center', size: 'auto', color: white, bgcolor: blue },
 			steps: [
 				{
 					down: [{ actionId: 'left_action', options: {} }],
@@ -66,7 +66,7 @@ export function Presets() {
 			type: 'button',
 			category: 'Pan/Tilt/Zoom',
 			name: 'up',
-			style: { text: '^', color: white, bgcolor: blue },
+			style: { text: '', png64: image_up, pngalignment: 'center:center', size: 'auto', color: white, bgcolor: blue },
 			steps: [
 				{
 					down: [{ actionId: 'up_action', options: {} }],
@@ -78,7 +78,7 @@ export function Presets() {
 			type: 'button',
 			category: 'Pan/Tilt/Zoom',
 			name: 'down',
-			style: { text: 'v', color: white, bgcolor: blue },
+			style: { text: '', png64: image_down, pngalignment: 'center:center', size: 'auto', color: white, bgcolor: blue },
 			steps: [
 				{
 					down: [{ actionId: 'down_action', options: {} }],
