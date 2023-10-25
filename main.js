@@ -1,7 +1,6 @@
 import { InstanceBase, Regex, runEntrypoint, InstanceStatus } from '@companion-module/base'
 import { UpgradeScripts } from './upgrades.js'
 import { UpdateActions } from './actions.js'
-import { UpdateFeedbacks } from './feedbacks.js'
 import { UpdateVariableDefinitions } from './variables.js'
 import { Presets } from './presets.js'
 import fetch from 'node-fetch'
@@ -17,7 +16,6 @@ class ModuleInstance extends InstanceBase {
 		this.updateStatus(InstanceStatus.Ok)
 
 		this.updateActions() // export actions
-		this.updateFeedbacks() // export feedbacks
 		this.updateVariableDefinitions() // export variable definitions
 		this.initPresets()
 	}
@@ -45,7 +43,7 @@ class ModuleInstance extends InstanceBase {
 				id: 'port',
 				label: 'Web UI Port',
 				width: 4,
-                                default: 80,
+				default: 80,
 				min: 1,
 				max: 65535,
 			},
@@ -54,14 +52,14 @@ class ModuleInstance extends InstanceBase {
 				id: 'user',
 				label: 'Username',
 				width: 12,
-                                default: 'admin',
+				default: 'admin',
 			},
 			{
 				type: 'textinput',
 				id: 'password',
 				label: 'Password',
 				width: 12,
-                                default: 'admin',
+				default: 'admin',
 			},
 		]
 	}
@@ -79,7 +77,7 @@ class ModuleInstance extends InstanceBase {
 	}
 
 	initPresets() {
-	        this.setPresetDefinitions(Presets())
+		this.setPresetDefinitions(Presets())
 	}
 }
 
