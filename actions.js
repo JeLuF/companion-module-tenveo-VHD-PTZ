@@ -1,13 +1,16 @@
 
 export function UpdateActions(self) {
-        async function tv_do_command(cmd) {
+        async function tv_do_command(cmd, realm="ReqPtzCtrl") {
 	    console.log("Command: ", cmd);
-            const response = await fetch( 'http://198.18.10.10/cmdparse', {
+	    let url = `http://${self.config.host}:${self.config.port}/cmdparse`
+	    let user = Buffer.from(self.config.user).toString('base64')
+	    let password = Buffer.from(self.config.password).toString('base64')
+            const response = await fetch( url, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
                 },
-                body: 'ReqUserName=YWRtaW4=&ReqUserPwd=YWRtaW4=&CmdData={"Cmd":"ReqPtzCtrl","Content":' + JSON.stringify(cmd) + '}'
+                body: `ReqUserName=${user}&ReqUserPwd=${password}&CmdData={"Cmd":"${realm}","Content": ${JSON.stringify(cmd)} }`
             })
             console.log(response)
 	    console.log("------------")
@@ -15,7 +18,7 @@ export function UpdateActions(self) {
 
 	self.setActionDefinitions({
 		stop_action: {
-			name: 'Stop',
+			name: 'Pan/Tilt: Stop',
 			options: [
 				{
 					id: 'speed',
@@ -31,7 +34,7 @@ export function UpdateActions(self) {
 			},
 		},
 		left_action: {
-			name: 'Left',
+			name: 'Pan/Tilt: Left',
 			options: [
 				{
 					id: 'speed',
@@ -47,7 +50,7 @@ export function UpdateActions(self) {
 			},
 		},
 		right_action: {
-			name: 'Right',
+			name: 'Pan/Tilt: Right',
 			options: [
 				{
 					id: 'speed',
@@ -63,7 +66,7 @@ export function UpdateActions(self) {
 			},
 		},
 		down_action: {
-			name: 'Down',
+			name: 'Pan/Tilt: Down',
 			options: [
 				{
 					id: 'speed',
@@ -79,7 +82,7 @@ export function UpdateActions(self) {
 			},
 		},
 		up_action: {
-			name: 'Up',
+			name: 'Pan/Tilt: Up',
 			options: [
 				{
 					id: 'speed',
@@ -95,7 +98,7 @@ export function UpdateActions(self) {
 			},
 		},
 		zoom_in_action: {
-			name: 'Zoom In',
+			name: 'Zoom: In',
 			options: [
 				{
 					id: 'speed',
@@ -111,7 +114,7 @@ export function UpdateActions(self) {
 			},
 		},
 		zoom_out_action: {
-			name: 'Zoom Out',
+			name: 'Zoom: Out',
 			options: [
 				{
 					id: 'speed',
@@ -127,7 +130,7 @@ export function UpdateActions(self) {
 			},
 		},
 		zoom_stop_action: {
-			name: 'Zoom Stop',
+			name: 'Zoom: Stop',
 			options: [
 				{
 					id: 'speed',
@@ -144,36 +147,56 @@ export function UpdateActions(self) {
 		},
 		home_action: {
 			name: 'Home',
-			options: [
-				{
-					id: 'speed',
-					type: 'number',
-					label: 'Speed',
-					default: 20,
-					min: 0,
-					max: 100,
-				},
-			],
 			callback: async (event) => {
                                 await tv_do_command({PtzCmd: "GotoHome", ParamH:0, ParamV:0})
 			},
 		},
 		focus_far_action: {
-			name: 'Focus Far',
+			name: 'Focus: Far',
 			callback: async (event) => {
                                 await tv_do_command({PtzCmd: "FocusFar", ParamH:-1, ParamV:-1})
 			},
 		},
 		focus_near_action: {
-			name: 'Focus Near',
+			name: 'Focus: Near',
 			callback: async (event) => {
                                 await tv_do_command({PtzCmd: "FocusNear", ParamH:-1, ParamV:-1})
 			},
 		},
 		focus_stop_action: {
-			name: 'Focus Stop',
+			name: 'Focus: Stop',
 			callback: async (event) => {
                                 await tv_do_command({PtzCmd: "FocusStop", ParamH:-1, ParamV:-1})
+			},
+		},
+		recall_action: {
+			name: 'Preset: Recall',
+			options: [
+			    {
+			        id: 'preset',
+				type: 'number',
+				label: 'Preset Number',
+				min: 0,
+				max: 255,
+		            }
+			],
+			callback: async (event) => {
+                                await tv_do_command( {"PresetCmd":"Call","PresetID": event.options.preset} , "ReqPresetCtrl")
+			},
+		},
+		set_action: {
+			name: 'Preset: Set',
+			options: [
+			    {
+			        id: 'preset',
+				type: 'number',
+				label: 'Preset Number',
+				min: 0,
+				max: 255,
+		            }
+			],
+			callback: async (event) => {
+                                await tv_do_command( {"PresetCmd":"Set","PresetID": event.options.preset} , "ReqPresetCtrl")
 			},
 		},
 	})

@@ -41,12 +41,27 @@ class ModuleInstance extends InstanceBase {
 				regex: Regex.IP,
 			},
 			{
-				type: 'textinput',
+				type: 'number',
 				id: 'port',
 				label: 'Web UI Port',
 				width: 4,
-				regex: Regex.PORT,
-                                default: '80',
+                                default: 80,
+				min: 1,
+				max: 65535,
+			},
+			{
+				type: 'textinput',
+				id: 'user',
+				label: 'Username',
+				width: 12,
+                                default: 'admin',
+			},
+			{
+				type: 'textinput',
+				id: 'password',
+				label: 'Password',
+				width: 12,
+                                default: 'admin',
 			},
 		]
 	}
@@ -64,7 +79,7 @@ class ModuleInstance extends InstanceBase {
 	}
 
 	initPresets() {
-	        this.setPresetDefinitions(Presets)
+	        this.setPresetDefinitions(Presets())
 	}
 }
 
